@@ -1,4 +1,6 @@
-	#include 'stdafx'
+  //Програмата да извежда матрицата, получена от въведената, като всеки нейн елемент е увеличен с 10.
+  
+  #include 'stdafx'
   #include <iostream>
   using namespace std;
   
