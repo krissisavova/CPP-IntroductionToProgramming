@@ -1,0 +1,51 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const  int MAX_SIZE = 10;
+	int n, m, i, j, arr[MAX_SIZE][MAX_SIZE];
+	int x, posROW, posCOL, cnt = 0;
+
+	cout << "The number of rows: ";
+	cin >> n;
+	cout << "The number of columns: ";
+	cin >> m;
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			cout << "arr[" << i << "][" << j << "] = ";
+			cin >> arr[i][j];
+		}
+	}
+
+	cout << "Enter a number: ";
+	cin >> x;
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			if (arr[i][j] == x)
+			{
+				arr[i][j] *= 10;
+				cnt = 1;
+				posROW = i;
+				posCOL = j;
+				break;
+			}
+		}
+	}
+
+	if (cnt == 0)
+	{
+		cout << "ERROR 404! NUMBER NOT FOUND!" << endl;;
+	}
+	else
+		cout << "The number " << x << " can be found on row " << posROW << " and column " << posCOL << "." << endl;
+
+    return 0;
+}
