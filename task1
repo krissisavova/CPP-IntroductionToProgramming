@@ -13,8 +13,6 @@
 	cout << "The number of columns: ";
 	cin >> m;
 
-	int min = 0, max = 0;
-
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++)
@@ -23,6 +21,8 @@
 			cin >> arr[i][j];
 		}
 	}
+	
+	int min = arr[0[0], max = arr[0][0];
 
 	for (int i = 0; i < n; i++)
 	{
