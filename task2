@@ -1,0 +1,128 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  const  int MAX_SIZE = 10;
+	int n, m;
+	int arr[MAX_SIZE][MAX_SIZE], arrROWS[MAX_SIZE], arrCOLUMNS[MAX_SIZE];
+	int sum = 0;
+
+	cout << "The number of rows: ";
+	cin >> n;
+	cout << "The number of columns: ";
+	cin >> m;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cout << "arr[" << i << "][" << j << "] = ";
+			cin >> arr[i][j];
+		}
+	}
+
+	cout << "---------------------------" << endl;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			cout << arr[i][j] << ' ';
+		}
+		cout << endl;
+	}
+
+		cout << "---------------------------" << endl;
+
+	//a - rows
+	for (int i = 0; i < n; i++)
+	{
+		arrROWS[i] = 0;
+		for (int j = 0; j < m; j++)
+		{
+			arrROWS[i] += arr[i][j];
+			sum = arrROWS[i];
+		}
+		cout << "Sum of row "<<i+1<<" is " << sum << endl;
+	}
+
+	cout << "---------------------------" << endl;
+	//b - columns 
+	for (int j = 0; j < m; j++)
+	{
+		arrCOLUMNS[j] = 0;
+		for (int i = 0; i < n; i++)
+		{
+			arrCOLUMNS[j] += arr[i][j];
+			sum = arrCOLUMNS[j];
+		}
+		cout << "Sum of column " << j + 1 << " is " << sum << endl;
+	}
+
+	cout << "---------------------------" << endl;
+	int sum1 = 0, sum2 = 0, sum3 = 0;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			//c
+			if (i == j) 
+			{
+				sum1 += arr[i][j];
+			}
+			//d
+			if (i > j)
+			{
+				sum2 += arr[i][j];
+			}
+			//e
+			if (i < j)
+			{
+				sum3 += arr[i][j];
+			}
+		}
+	}
+
+	cout << "The sums ON, UNDER and ABOVE the main diagonal are " << sum1 <<", "<< sum2 << ", " << sum3 << endl;
+	cout << "---------------------------" << endl;
+
+	//f
+	int sumSECD = 0;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i + j == m - 1)
+			{
+				sumSECD += arr[i][j];
+			}
+		}
+	}
+
+	cout << " The sum of the elements on the SECONDARY diagonal is " << sumSECD << endl;
+	cout << "---------------------------" << endl; 
+
+	//g
+	int sumUNDER_SECD = 0, sumABOVE_SECD = 0;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i + j > m - 1)
+			{
+				sumUNDER_SECD += arr[i][j];
+			}
+
+			if (i + j < m - 1)
+			{
+				sumABOVE_SECD += arr[i][j];
+			}
+		}
+	}
+	
+	cout << "The sums of the elements UNDER and ABOVE the SECONDARY diagonal are respectively " << sumUNDER_SECD << " and " << sumABOVE_SECD << endl;
+   
+  return 0;
+}
