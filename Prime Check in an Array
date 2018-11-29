@@ -1,0 +1,41 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	int arr[10];
+	int primeMax = 0;
+	bool isPrime = true;
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << "Enter a number: ";
+		cin >> arr[i];
+	}
+
+	
+	for (int i = 0; i < 10; i++)
+	{
+		if (arr[i] == 0 || arr[i] == 1)
+		{
+			isPrime = false;
+		}
+
+		for (int j = 2; j < arr[i]; j++)
+		{
+			if (arr[i] % j == 0)
+			{
+				isPrime = false;
+			}
+		}
+
+		if (isPrime == true)
+		{
+			cout << arr[i] << ' ';
+		}
+		isPrime = true;
+	}
+    return 0;
+}
