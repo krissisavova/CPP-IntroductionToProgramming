@@ -1,0 +1,23 @@
+Write a program in which the user enters a random latin capital letter, as the following output should be:
+
+Letter: E
+A
+B B
+C C C
+D D D D
+E E E E E
+
+
+char input, original = 'A';
+  cout << "Letter: ";
+	cin >> input;
+
+	for (int i = 1; i <= input - 'A' + 1; i++)
+	{
+		for (int j = 1; j <= i; j++)
+		{
+			cout << original << ' ';
+		}
+		original++;
+		cout << endl;
+	}
