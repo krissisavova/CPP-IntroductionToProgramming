@@ -1,0 +1,51 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+bool isPrime(int number)
+{
+	if (number == 0 || number == 1 || number < 0)
+	{
+		return false;
+	}
+
+	else
+	{
+		for (int i = 2; i <= number / 2; ++i)
+		{
+			if (number % i == 0)
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+bool isTwo (int number1, int number2)
+{
+	int flag = false;
+	if (abs(number1 - number2) == 2)
+	{
+		return true;
+	}
+	return flag;
+}
+
+int main()
+{
+	int num1 = 0, num2 = 0;
+	cout << "Enter the first number: ";
+	cin >> num1;
+	cout << "Enter the first number: ";
+	cin >> num2;
+	
+	cout << endl;
+
+	bool primes = isPrime(num1) && isPrime(num2);
+
+	bool check = ((primes == true && isTwo(num1, num2)) ? true : false);
+	cout << "(1 - true, 0 - false!)" << endl;
+	cout << "Are " << num1 << " and " << num2 << " prime numbers whose difference is 2?\n" << "Final answer: " << check << endl;
+    return 0;
+}
