@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+long long convert(int number)
+{
+	long long binaryNum = 0;
+	int rem, i = 1;
+	while (number != 0)
+	{
+		rem = number % 2;
+		number /= 2;
+		binaryNum += rem*i;
+		i *= 10;
+	}
+	return binaryNum;
+}
+
+int main()
+{
+	int arr[5];
+	long long binaryNumber = 0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Enter a decimal number: ";
+		cin >> arr[i];
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		binaryNumber = convert(arr[i]);
+		cout << arr[i] << " in decimal = " << binaryNumber << " (in binary)" << endl;
+	}
+
+	return 0;
+}
+
