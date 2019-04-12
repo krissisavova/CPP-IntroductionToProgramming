@@ -1,0 +1,87 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+void reverseArray(int array[], int start, int end)
+{
+	while (start < end)
+	{
+		int temp = array[start];
+		array[start] = array[end];
+		array[end] = temp;
+		start++;
+		end--;
+	}
+}
+
+void DeleteOddIndexes(int arr1[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		if (i % 2 == 1)
+		{
+			for (int j = 0; j < length - 1; j++)
+			{
+				arr1[j] = arr1[j + 1];
+			}
+		}
+	}
+
+	for (int i = 0; i < length - 1; i++)
+	{
+		cout << arr1[i] << ' ';
+	}
+	cout << endl;
+}
+
+bool check(int number)
+{
+	number *= 3;
+	number -= 5;
+	return true;
+}
+
+int main()
+{
+	const int MAX_SIZE = 50;
+	int n = 0, operation;
+	int arr[MAX_SIZE];
+
+	cout << "Enter a number for the length of the array: ";
+	cin >> n;
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << "arr[" << i << "] = ";
+		cin >> arr[i];
+	}
+
+	cout << "Enter a number from 1 to 5 for an operation: ";
+	cin >> operation;
+
+		switch (operation)
+		{
+		case 1: {
+			for (int i = 0; i < n; i++)
+			{
+				reverseArray(arr[i], 0, n - 1);
+			}
+			break;
+		}
+		case 2:
+			for (int i = 0; i < n; i++)
+			{
+				check(arr[i]);
+			}
+			break;
+		case 5:
+			for (int i = 0; i < n; i++)
+			{
+				DeleteOddIndexes(arr[i], n);
+			}
+			break;
+		default: cout << "The entered numbers should be between 1 and 5." << endl; break;
+	}
+
+    return 0;
+}
